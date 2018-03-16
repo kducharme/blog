@@ -1,0 +1,140 @@
+body {
+    background-color: #F9FAFE;
+    display: flex;
+    padding: 2% 18% 0 18%;
+}
+
+h1, h2, h3, h4, h5, h6, p {
+    font-family: 'lato';
+}
+
+/* BACKGROUND STRUCTURE */
+
+.add-post {
+    background-color: white;
+    width: 100%;
+    min-width: 650px;
+    height: 100%;
+    justify-content: center;
+    border: 1px solid #EDEDED;
+}
+
+/* POST INFORMATION */
+
+.post-info {
+    margin: 10px 50px 10px 50px;
+    display: flex;
+    width: 100%;
+}
+
+.date, .author {
+    color: #1D2936;
+    font-size:13px;
+    font-weight: 600;
+    padding: 0px 25px 0px 0px;
+}
+
+.type {
+    color: #828B96;
+    font-size: 12px;
+    font-weight: 400;
+    padding: 0px 5px 0px 0px;
+}
+
+
+/* WRITING AREA */
+
+.input-area {
+    margin: 50px;
+}
+
+textarea {
+    width: 97%;
+    border: none;
+    font-size: 13px;
+    color: #1D2936;
+    resize: none;
+}
+
+textarea::placeholder{
+    color: #b3b3b1;
+}
+
+.title {
+    width: 97%;
+    border: none;
+    font-size: 28px;
+    color: #1D2936;
+    font-weight: 800;
+    font-family: 'lato';
+}
+
+.title::placeholder {
+    font-weight: 600;
+    color: #b3b3b1;
+}
+
+textarea:focus, textarea:active input:focus, input:active {
+    box-shadow:none;
+    -webkit-transition: none;
+    -moz-transition: none;
+    -ms-transition: none;
+    -o-transition: none;
+    outline: none;
+}
+
+.divider {
+    border: .8px solid #ededed;
+    margin: 0px;
+}
+/* Post actions section */
+
+.post-actions {
+    width: 100%;
+    display: flex;
+}
+
+.add-media {
+    width: 65%;
+    display: block;
+}
+
+.publish-post {
+    width: 35%;
+    max-width: 250px;
+    margin: 15px 20px 15px 30px;
+    display: flex;
+}
+
+.submit-post:hover, .submit-post:focus, .submit-post:active{
+    cursor: pointer;
+    box-shadow: 0 1px 15px 0 rgba(0,0,0,0.15);
+    -webkit-transition: none;
+    -moz-transition: none;
+    -ms-transition: none;
+    -o-transition: none;
+    outline: none;
+}
+
+.submit-post {
+    height: 42px;
+    width: 120px;
+    min-width: 120px;
+    color: #2547BF;
+    font-weight: 600;
+    font-size: 13px;
+    background-color: white;
+    border: 1.5px solid #2547BF;
+    border-radius: 4px;
+}
+
+.save-draft {
+    min-width: 100px;
+    color: #2547BF;
+    font-weight: 600;
+    font-size: 13px;
+    margin-right: 10px;
+    background-color: transparent;
+    border: none;
+}
+    

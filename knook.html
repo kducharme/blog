@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+
+<head>
+  <title>Notes</title>
+  <link href="style.css" rel="stylesheet">
+</head>
+
+<body>
+
+  <div class="add-post">
+
+    <div class="post-info">
+      <p class="date" id="date">
+        <span class="type">Date created: </span>March 16, 2018 </p>
+      <p class="author" id="author">
+        <span class="type">Author: </span>Kyle Ducharme</p>
+      <p class="author" id="post-status">
+        <span class="type">Post Status: </span>Draft</p>
+      <a href="posts.html">CLICK ME</a>
+    </div>
+
+    <hr class="divider">
+
+    <div class="input-area">
+      <textarea rows="2" id="title" class="title" placeholder="Enter post title"></textarea>
+      <textarea rows="20" id="description" class="post-body" placeholder="Start writing..."></textarea>
+    </div>
+
+    <hr class="divider">
+    <div class="post-actions">
+      <div class="add-media">
+      </div>
+      <div class="publish-post">
+        <button id="save-draft" class="save-draft">Save as draft</button>
+        <button id="submit-post" class="submit-post">Publish post</button>
+      </div>
+    </div>
+
+  </div>
+
+  <script src="https://www.gstatic.com/firebasejs/4.11.0/firebase.js"></script>
+
+  <script>
+    // Initialize Firebase
+    var config = {
+      apiKey: "AIzaSyAFqGzu_1eTMwxJCK-Vbu9xHXvmnfN40rY",
+      authDomain: "kyle-personal-blog.firebaseapp.com",
+      databaseURL: "https://kyle-personal-blog.firebaseio.com",
+      projectId: "kyle-personal-blog",
+      storageBucket: "kyle-personal-blog.appspot.com",
+      messagingSenderId: "131385774847"
+    };
+    firebase.initializeApp(config);
+  </script>
+  <script src="knook.js"></script>
+</body>
+
+</html>
