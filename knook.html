@@ -16,14 +16,14 @@
         <span class="type">Author: </span>Kyle Ducharme</p>
       <p class="author" id="post-status">
         <span class="type">Post Status: </span>Draft</p>
-      <a href="posts.html">CLICK ME</a>
     </div>
 
     <hr class="divider">
 
     <div class="input-area">
       <textarea rows="2" id="title" class="title" placeholder="Enter post title"></textarea>
-      <textarea rows="20" id="description" class="post-body" placeholder="Start writing..."></textarea>
+
+      <textarea rows="20" id="body" class="post-body" placeholder="Start writing..."></textarea>
     </div>
 
     <hr class="divider">
@@ -52,6 +52,10 @@
     };
     firebase.initializeApp(config);
   </script>
+  <script
+  src="https://code.jquery.com/jquery-3.3.1.min.js"
+  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+  crossorigin="anonymous"></script>
   <script src="knook.js"></script>
 </body>
 
