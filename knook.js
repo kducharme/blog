@@ -3,8 +3,9 @@ getAuthor()
 getStatus()
 disablePostButton()
 
+// All event listeners
 document.getElementById("submit-post").addEventListener("click", createPost)
-
+document.getElementById("body").addEventListener("select", getHighlighted)
 
 // Post object template
 function Post(author, body, date, status, title) {
@@ -51,13 +52,9 @@ function disablePostButton() {
     let body = document.getElementById("body").value;
 
     let button = document.getElementById("submit-post");
-    if (title === " ") {
-        button.classList.add = "disabled";
+    if (title == " ") {
+        button.classList.add("disabled");
     }
-    else {
-        button.removeAttribute("class", "disabled")
-    }
-
 }
 
 function getDate() {
@@ -99,5 +96,18 @@ function getStatus() {
 function postDate(datePosted) {
     let date = datePosted
     document.getElementById("date").innerHTML = date
-    console.log(date)
+}
+
+function getHighlighted() {
+    var text = "";
+    if (window.getSelection) {
+        text = window.getSelection().toString();
+    } else if (document.selection && document.selection.type != "Control") {
+        text = document.selection.createRange().text;
+    }
+    textOptions(text)
+}
+
+function textOptions(text) {
+    console.log(text);
 }

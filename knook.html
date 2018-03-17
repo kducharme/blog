@@ -11,13 +11,16 @@
 
     <div class="post-info">
       <p class="type">
-        Date created: </p><p class="author" id="date">    </p>
+        Date created: </p>
+      <p class="author" id="date"> </p>
 
       <p class="type">
-        Author: </p><p class="author" id="author">    </p>
-      
-        <p class="type">
-        Status: </p><p class="author" id="status">    </p>
+        Author: </p>
+      <p class="author" id="author"> </p>
+
+      <p class="type">
+        Status: </p>
+      <p class="author" id="status"> </p>
 
 
     </div>
@@ -27,7 +30,7 @@
     <div class="input-area">
       <textarea rows="2" id="title" class="title" placeholder="Enter post title"></textarea>
 
-      <textarea rows="20" id="body" class="post-body" placeholder="Start writing..."></textarea>
+      <textarea rows="25" id="body" class="post-body" placeholder="Start writing..."></textarea>
     </div>
 
     <hr class="divider">
@@ -38,6 +41,19 @@
         <button id="save-draft" class="save-draft">Save as draft</button>
         <button id="submit-post" class="submit-post">Publish post</button>
       </div>
+    </div>
+
+  </div>
+
+  <!-- The Modal -->
+  <div id="edit-modal" class="modal">
+
+    <!-- Modal content -->
+    <div class="modal-content hide">
+      <span id="big" class="big">T</span>
+      <span id="med" class="med">T</span>
+      <span id="bold" class="bold">B</span>
+      <span id="italic" class="italic">i</span>
     </div>
 
   </div>
@@ -56,10 +72,8 @@
     };
     firebase.initializeApp(config);
   </script>
-  <script
-  src="https://code.jquery.com/jquery-3.3.1.min.js"
-  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
-  crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+    crossorigin="anonymous"></script>
   <script src="knook.js"></script>
 </body>
 
