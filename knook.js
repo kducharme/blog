@@ -1,22 +1,28 @@
+getDate()
+getAuthor()
+getStatus()
+disablePostButton()
 
 document.getElementById("submit-post").addEventListener("click", createPost)
 
 
 // Post object template
-function Post(title, body, img, date, author, status) {
-    this.title = title;
-    this.body = body;
-    this.img = img;
-    this.date = date;
+function Post(author, body, date, status, title) {
     this.author = author;
+    this.body = body;
+    this.date = date;
     this.status = status;
+    this.title = title;
 }
 
 function createPost() {
-    let title= document.getElementById("title")
-    let body = document.getElementById("body")
+    let author = getAuthor(name);
+    let body = document.getElementById("body");
+    let date = getDate(datePosted);
+    let status = "Draft";
+    let title = document.getElementById("title");
 
-    newPost = new Post(title.value, body.value)
+    newPost = new Post(author, body.value, date, status, title.value);
 
     $.ajax({
         url: 'https://kyle-personal-blog.firebaseio.com/posts.json',
@@ -30,12 +36,28 @@ function createPost() {
         }
     });
     clearPost(title, body)
+
     console.log(newPost)
 }
 
 function clearPost(title, body) {
     title.value = ""
     body.value = ""
+    disablePostButton();
+}
+
+function disablePostButton() {
+    let title = document.getElementById("title").value;
+    let body = document.getElementById("body").value;
+
+    let button = document.getElementById("submit-post");
+    if (title === " ") {
+        button.classList.add = "disabled";
+    }
+    else {
+        button.removeAttribute("class", "disabled")
+    }
+
 }
 
 function getDate() {
@@ -53,11 +75,29 @@ function getDate() {
 
     datePosted = reviewDay + " " + reviewMonth + " " + day + ", " + year
 
+    postDate(datePosted)
+
     return datePosted;
 }
 
-function postDate() {
-    getDate()
-    
-    console.log(datePosted)
+// Displays author name
+function getAuthor() {
+    let name = "Kyle Ducharme";
+    document.getElementById("author").innerHTML = name
+    return name;
+}
+
+// Gets status of post
+function getStatus() {
+    let status = "Draft";
+    document.getElementById("status").innerHTML = status
+
+    return status;
+}
+
+// Shows date created on the knook area
+function postDate(datePosted) {
+    let date = datePosted
+    document.getElementById("date").innerHTML = date
+    console.log(date)
 }

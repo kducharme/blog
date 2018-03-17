@@ -38,7 +38,7 @@ h1, h2, h3, h4, h5, h6, p {
     color: #828B96;
     font-size: 12px;
     font-weight: 400;
-    padding: 0px 5px 0px 0px;
+    padding: 2px 5px 0px 0px;
 }
 
 
@@ -106,9 +106,8 @@ textarea:focus, textarea:active input:focus, input:active {
     display: flex;
 }
 
-.submit-post:hover, .submit-post:focus, .submit-post:active{
+.submit-post:hover, .submit-post:focus, .submit-post:active  {
     cursor: pointer;
-    box-shadow: 0 1px 15px 0 rgba(0,0,0,0.15);
     -webkit-transition: none;
     -moz-transition: none;
     -ms-transition: none;
@@ -116,7 +115,7 @@ textarea:focus, textarea:active input:focus, input:active {
     outline: none;
 }
 
-.submit-post {
+.submit-post, .submit-post:target {
     height: 42px;
     width: 120px;
     min-width: 120px;
@@ -136,5 +135,9 @@ textarea:focus, textarea:active input:focus, input:active {
     margin-right: 10px;
     background-color: transparent;
     border: none;
+}
+
+.disabled {
+    opacity: .5;
 }
     
