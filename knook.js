@@ -5,7 +5,11 @@ disablePostButton()
 
 // All event listeners
 document.getElementById("submit-post").addEventListener("click", createPost)
-document.getElementById("body").addEventListener("select", getHighlighted)
+
+document.getElementById("body").addEventListener("dblclick", getHighlighted)
+
+// Bold text
+
 
 // Post object template
 function Post(author, body, date, status, title) {
@@ -23,7 +27,7 @@ function createPost() {
     let status = "Draft";
     let title = document.getElementById("title");
 
-    newPost = new Post(author, body.value, date, status, title.value);
+    newPost = new Post(author, body.textContent, date, status, title.value);
 
     $.ajax({
         url: 'https://kyle-personal-blog.firebaseio.com/posts.json',
@@ -43,7 +47,7 @@ function createPost() {
 
 function clearPost(title, body) {
     title.value = ""
-    body.value = ""
+    body.textContent = ""
     disablePostButton();
 }
 
@@ -99,15 +103,27 @@ function postDate(datePosted) {
 }
 
 function getHighlighted() {
-    var text = "";
+    let text = "";
     if (window.getSelection) {
         text = window.getSelection().toString();
     } else if (document.selection && document.selection.type != "Control") {
         text = document.selection.createRange().text;
     }
-    textOptions(text)
+    return text;
 }
 
-function textOptions(text) {
-    console.log(text);
+// function showTextOptions() {
+//     let options = document.getElementById("text-options")
+//     options.classList.remove("disable")
+
+//     document.getElementById("body").addEventListener("click",hideTextOptions)
+// }
+
+// function hideTextOptions() {
+//     let options = document.getElementById("text-options")
+//     options.classList.add("disable")
+// }
+
+function boldText() {
+    console.log(getHighlighted())
 }

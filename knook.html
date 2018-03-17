@@ -22,38 +22,26 @@
         Status: </p>
       <p class="author" id="status"> </p>
 
-
     </div>
-
     <hr class="divider">
 
     <div class="input-area">
       <textarea rows="2" id="title" class="title" placeholder="Enter post title"></textarea>
-
-      <textarea rows="25" id="body" class="post-body" placeholder="Start writing..."></textarea>
+      <div id="body" class="post-body" contenteditable=true data-text="Start writing..."></div>
     </div>
 
     <hr class="divider">
     <div class="post-actions">
-      <div class="add-media">
+      <div class="text-options" id="text-options">
+          <span id="big" class="big">T</span>
+          <span id="med" class="med">T</span>
+          <span id="bold" class="bold">B</span>
+          <span id="italic" class="italic">i</span>
       </div>
       <div class="publish-post">
         <button id="save-draft" class="save-draft">Save as draft</button>
         <button id="submit-post" class="submit-post">Publish post</button>
       </div>
-    </div>
-
-  </div>
-
-  <!-- The Modal -->
-  <div id="edit-modal" class="modal">
-
-    <!-- Modal content -->
-    <div class="modal-content hide">
-      <span id="big" class="big">T</span>
-      <span id="med" class="med">T</span>
-      <span id="bold" class="bold">B</span>
-      <span id="italic" class="italic">i</span>
     </div>
 
   </div>
