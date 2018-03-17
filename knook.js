@@ -2,13 +2,12 @@ getDate()
 getAuthor()
 getStatus()
 disablePostButton()
+selectedText = [];
 
 // All event listeners
 document.getElementById("submit-post").addEventListener("click", createPost)
 
 document.getElementById("body").addEventListener("dblclick", getHighlighted)
-
-// Bold text
 
 
 // Post object template
@@ -36,13 +35,11 @@ function createPost() {
         success: function () {
             console.log("success");
         },
-        error: function(error) {
+        error: function (error) {
             console.log("error: " + error)
         }
     });
     clearPost(title, body)
-
-    console.log(newPost)
 }
 
 function clearPost(title, body) {
@@ -70,14 +67,11 @@ function getDate() {
     let month = date.getMonth();
     let day = date.getDate();
     let year = date.getFullYear();
-
     let reviewDay = dayNames[dayOfWeek]
     let reviewMonth = monthNames[month]
-
     datePosted = reviewDay + " " + reviewMonth + " " + day + ", " + year
 
     postDate(datePosted)
-
     return datePosted;
 }
 
@@ -109,21 +103,14 @@ function getHighlighted() {
     } else if (document.selection && document.selection.type != "Control") {
         text = document.selection.createRange().text;
     }
+    selectedText.push(text)
+    newSpan(text);
     return text;
 }
 
-// function showTextOptions() {
-//     let options = document.getElementById("text-options")
-//     options.classList.remove("disable")
-
-//     document.getElementById("body").addEventListener("click",hideTextOptions)
-// }
-
-// function hideTextOptions() {
-//     let options = document.getElementById("text-options")
-//     options.classList.add("disable")
-// }
-
-function boldText() {
-    console.log(getHighlighted())
+function newSpan(text) {
+    let range = text.createRange();
+    let newNode = document.createElement("span");
+    range.selectNode(document.getElementsByTagName("div").item(0));
+    range.surroundContents(newNode);
 }

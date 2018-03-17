@@ -166,10 +166,6 @@ textarea:focus, textarea:active input:focus, input:active {
     border: none;
 }
 
-.disabled {
-    opacity: .5;
-}
-
 /* CONTENT STYLING */
 
 .big {
