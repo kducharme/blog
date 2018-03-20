@@ -105,12 +105,21 @@ function getHighlighted() {
     }
     selectedText.push(text)
     newSpan(text);
+
     return text;
 }
 
 function newSpan(text) {
-    let range = text.createRange();
+    let selection = window.getSelection();
+    let start = selection.anchorOffset;
+    let end = selection.focusOffset;
     let newNode = document.createElement("span");
-    range.selectNode(document.getElementsByTagName("div").item(0));
-    range.surroundContents(newNode);
+
+    console.log(newNode)
+
+    console.log('start: ' + start + ' end: ' + end)
+
+    let newSpan = selection.setBaseAndExtent(newNode,start,newNode,end)
+    console.log(newSpan)
+
 }
