@@ -229,18 +229,31 @@ textarea:focus, textarea:active input:focus, input:active {
 /* PRINTED POSTS */
 
 .printedPost {
-    background-color: black;
-    padding: 100px;
+    background-color: white;
+    width: 100%;
+    margin: 0px 0px 70px 0px;
 }
 
 .post-title {
+    color: #2F3E50;
     font-size: 24px;
     font-weight: 800;
     font-family: 'lato';
 }
 
-.post-content {
-    font-size: 12px;
+.post-date {
+    color: #2F3E50;
+    font-size: 14px;
     font-weight: 400;
+    opacity: .5;
+    font-family: 'lato';
+    padding: 0px 0px 0px 10px;
+}
+
+.post-content {
+    color: #2F3E50;
+    font-size: 14px;
+    font-weight: 200;
     font-family: 'merriweather';
+    line-height: 23px;
 }

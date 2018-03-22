@@ -26,7 +26,10 @@ function parseData(data) {
         let content = post[k].body;
         let author = post[k].author;
         let date = post[k].date;
-        posts += `${title} ${content}`;
+        posts += `<div class="printedPost">
+        <p class="post-title">${title}<span class="post-date">${date}</span></p>
+        <p class="post-content">${content}</p>
+        </div>`;
     }
-    document.querySelector('#printed-posts').textContent = posts;
+    document.querySelector('#printed-posts').innerHTML = posts;
 }

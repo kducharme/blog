@@ -103,13 +103,14 @@ function getHighlighted() {
         text = document.selection.createRange().text;
     }
     selectedText.push(text)
-    newSpan(text);
-
+    // newSpan(text);
+    console.log(text);
     return text;
 }
 
 function newSpan(text) {
     let selection = window.getSelection();
+    
     var paragraph = document.getElementById("post-body").innerHTML;
     let newNode = document.createElement("span");
     var before = paragraph.split(text);
