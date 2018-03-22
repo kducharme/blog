@@ -1,5 +1,4 @@
 body {
-    /* background-color: #F9FAFE; */
     display: flex;
     padding: 2% 18% 0 18%;
 }
@@ -225,4 +224,23 @@ textarea:focus, textarea:active input:focus, input:active {
 .bold-text {
     font-style: italic;
     font-size: 14px;
+}
+
+/* PRINTED POSTS */
+
+.printedPost {
+    background-color: black;
+    padding: 100px;
+}
+
+.post-title {
+    font-size: 24px;
+    font-weight: 800;
+    font-family: 'lato';
+}
+
+.post-content {
+    font-size: 12px;
+    font-weight: 400;
+    font-family: 'merriweather';
 }

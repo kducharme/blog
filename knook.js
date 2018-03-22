@@ -4,11 +4,10 @@ getStatus()
 disablePostButton()
 selectedText = [];
 
-// All event listeners
+
 document.getElementById("submit-post").addEventListener("click", createPost)
 
-document.getElementById("body").addEventListener("dblclick", getHighlighted)
-
+document.getElementById("post-body").addEventListener("dblclick", getHighlighted)
 
 // Post object template
 function Post(author, body, date, status, title) {
@@ -21,7 +20,7 @@ function Post(author, body, date, status, title) {
 
 function createPost() {
     let author = getAuthor(name);
-    let body = document.getElementById("body");
+    let body = document.getElementById("post-body");
     let date = getDate(datePosted);
     let status = "Draft";
     let title = document.getElementById("title");
@@ -50,7 +49,7 @@ function clearPost(title, body) {
 
 function disablePostButton() {
     let title = document.getElementById("title").value;
-    let body = document.getElementById("body").value;
+    let body = document.getElementById("post-body").value;
 
     let button = document.getElementById("submit-post");
     if (title == " ") {
@@ -111,15 +110,11 @@ function getHighlighted() {
 
 function newSpan(text) {
     let selection = window.getSelection();
-    let start = selection.anchorOffset;
-    let end = selection.focusOffset;
+    var paragraph = document.getElementById("post-body").innerHTML;
     let newNode = document.createElement("span");
+    var before = paragraph.split(text);
+    let result = `${before[0]} <b> ${text} ${before[1]} </b>`;
 
-    console.log(newNode)
-
-    console.log('start: ' + start + ' end: ' + end)
-
-    let newSpan = selection.setBaseAndExtent(newNode,start,newNode,end)
-    console.log(newSpan)
+    console.log(newNode.createTextNode(result))
 
 }
