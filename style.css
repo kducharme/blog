@@ -1,16 +1,26 @@
+/* VARIABLE */
+
+:root {
+    --primaryColor: #1D2936;
+    --secondaryColor: #b3b3b1;
+    --bgColor: #fff;
+    --fontPrimary: 'lato';
+    --fontSecondary: 'merriweather';
+}
+
 body {
     display: flex;
     padding: 2% 18% 0 18%;
 }
 
 h1, h2, h3, h4, h5, h6, p {
-    font-family: 'lato';
+    font-family: var(--fontPrimary);
 }
 
 /* BACKGROUND STRUCTURE */
 
 .add-post {
-    background-color: white;
+    background-color: var(--bgColor);
     width: 100%;
     min-width: 650px;
     height: 100%;
@@ -19,7 +29,6 @@ h1, h2, h3, h4, h5, h6, p {
 }
 
 /* POST INFORMATION */
-
 
 .post-info {
     margin: 10px 50px 10px 50px;
@@ -41,13 +50,12 @@ h1, h2, h3, h4, h5, h6, p {
     padding: 2px 5px 0px 0px;
 }
 
-
 /* WRITING AREA */
 
 [contentEditable=true]:empty:not(:focus):before{
     content:attr(data-text);
-    color: #b3b3b1;
-    font-family: 'lato';
+    color: var(--secondaryColor);
+    font-family: var(--fontPrimary);
 }
 .input-area {
     margin: 50px;
@@ -63,9 +71,10 @@ textarea {
 .post-body {
     font-size: 15px;
     min-height: 340px;
-    line-height: 1.5;
-    font-family: 'meriweather';
-    color: #1D2936;
+    line-height: 1.7;
+    font-family: var(--fontSecondary);
+    color: var(--PrimaryColor);
+    font-weight: 200;
     height: 100%;
 }
 
@@ -79,26 +88,26 @@ textarea {
 }
 
 .post-body::placeholder{
-    color: #b3b3b1;
-
+    color: var(--secondaryColor);
+    font-family: var(--fontSecondary);
 }
 
 textarea::placeholder{
-    color: #b3b3b1;
+    color: var(--secondaryColor);
 }
 
 .title {
+    color: var(--primaryColor);
+    font-family: var(--fontPrimary);
     width: 97%;
     border: none;
     font-size: 28px;
-    color: #1D2936;
     font-weight: 800;
-    font-family: 'lato';
 }
 
 .title::placeholder {
+    color: var(--secondaryColor);
     font-weight: 600;
-    color: #b3b3b1;
 }
 
 textarea:focus, textarea:active input:focus, input:active {
@@ -144,20 +153,20 @@ textarea:focus, textarea:active input:focus, input:active {
 }
 
 .submit-post, .submit-post:target {
+    background-color: var(--bgColor);
+    color: var(--primaryColor);
     height: 42px;
     width: 120px;
     min-width: 120px;
-    color: #2F3E50;
     font-weight: 600;
     font-size: 13px;
-    background-color: white;
     border: 1.5px solid #2F3E50;
     border-radius: 4px;
 }
 
 .save-draft {
     min-width: 100px;
-    color: #2F3E50;
+    color: var(--primaryColor);
     font-weight: 600;
     font-size: 13px;
     margin-right: 10px;
@@ -165,34 +174,31 @@ textarea:focus, textarea:active input:focus, input:active {
     border: none;
 }
 
-
 /* CONTENT STYLING */
 
 .big {
     font-size: 22px;
     font-weight: 400;
-    font-family: 'merriweather';
+    font-family: var(--fontSecondary);
     padding-right: 15px;
 }
 
 .med {
-    font-family: 'merriweather';
+    font-family: var(--fontSecondary);
     font-weight: 400;
     font-size: 15px;
-    padding-right: 15px;
-    padding-top: 4px;
+    padding: 4px 15px 0px 0px;
 }
 
 .bold {
-    font-family: 'merriweather';
+    font-family: var(--fontSecondary);
     font-weight: 800;
     font-size: 15px;
-    padding-right: 15px;
-    padding-top: 4px;
+    padding: 4px 15px 0px 0px;
 }
 
 .italic {
-    font-family: 'merriweather';
+    font-family: var(--fontSecondary);
     font-weight: 400;
     font-style: italic;
     padding-top: 4px;
@@ -233,34 +239,33 @@ textarea:focus, textarea:active input:focus, input:active {
 }
 
 .printedPost {
-    background-color: white;
+    background-color: var(--bgColor);
     width: 100%;
     margin: 0px 0px 60px 0px;
 }
 
 .post-title {
-    color: #2F3E50;
+    color: var(--primaryColor);
+    font-family: var(--fontPrimary);
     font-size: 24px;
     font-weight: 800;
-    font-family: 'lato';
     margin: 0px 0px 8px 0px;
 }
 
 .post-date {
-    color: #2F3E50;
+    color: var(--primaryColor);
+    font-family: var(--fontPrimary);
     font-size: 14px;
     font-weight: 400;
     opacity: .5;
-    font-family: 'lato';
     padding: 0px 0px 0px 10px;
 }
 
 .post-content {
-    color: #2F3E50;
+    color: var(--primaryColor);
+    font-family: var(--fontSecondary);
     font-size: 14px;
     font-weight: 200;
-    font-family: 'merriweather';
     line-height: 23px;
-    padding: 5px 0px 0px 00px;
-    
+    padding: 5px 0px 0px 00px;  
 }
