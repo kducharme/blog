@@ -68,7 +68,10 @@ function getDate() {
     let year = date.getFullYear();
     let reviewDay = dayNames[dayOfWeek]
     let reviewMonth = monthNames[month]
-    datePosted = reviewDay + " " + reviewMonth + " " + day + ", " + year
+
+    console.log(date)
+
+    datePosted = reviewMonth + " " + day + ", " + year
 
     postDate(datePosted)
     return datePosted;
@@ -110,12 +113,11 @@ function getHighlighted() {
 
 function newSpan(text) {
     let selection = window.getSelection();
-    
+
     var paragraph = document.getElementById("post-body").innerHTML;
     let newNode = document.createElement("span");
     var before = paragraph.split(text);
     let result = `${before[0]} <b> ${text} ${before[1]} </b>`;
 
     console.log(newNode.createTextNode(result))
-
 }
