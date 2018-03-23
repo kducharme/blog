@@ -1,8 +1,8 @@
 getData()
 let allPosts = [];
 
+// Gets data from Firebase
 function getData() {
-
     $.ajax({
         url: 'https://kyle-personal-blog.firebaseio.com/posts.json?print=pretty',
         type: "GET",
@@ -42,6 +42,7 @@ function sortPost(allPosts) {
     printPosts(filteredPosts)
 }
 
+// Prints posts to page
 function printPosts(filteredPosts) {
     let posts = filteredPosts;
     let printedPosts = ""

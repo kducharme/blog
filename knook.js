@@ -18,6 +18,7 @@ function Post(author, body, date, status, title) {
     this.title = title;
 }
 
+// Pushes post to Firebase after published
 function createPost() {
     let author = getAuthor(name);
     let body = document.getElementById("post-body");
@@ -41,12 +42,14 @@ function createPost() {
     clearPost(title, body)
 }
 
+// Clears knook writing area
 function clearPost(title, body) {
     title.value = ""
     body.textContent = ""
     disablePostButton();
 }
 
+// Disables post if there isn't any content in knook
 function disablePostButton() {
     let title = document.getElementById("title").value;
     let body = document.getElementById("post-body").value;
@@ -57,6 +60,7 @@ function disablePostButton() {
     }
 }
 
+// Gets date
 function getDate() {
     let dayNames = ['Sun', 'Mon', 'Tues', 'Wed', 'Thurs', 'Fri', 'Sat']
     let monthNames = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
@@ -68,9 +72,6 @@ function getDate() {
     let year = date.getFullYear();
     let reviewDay = dayNames[dayOfWeek]
     let reviewMonth = monthNames[month]
-
-    console.log(date)
-
     datePosted = reviewMonth + " " + day + ", " + year
 
     postDate(datePosted)
@@ -98,6 +99,7 @@ function postDate(datePosted) {
     document.getElementById("date").innerHTML = date
 }
 
+// Collects text that user selected
 function getHighlighted() {
     let text = "";
     if (window.getSelection) {
@@ -111,6 +113,7 @@ function getHighlighted() {
     return text;
 }
 
+// Wraps selected text in a span
 function newSpan(text) {
     let selection = window.getSelection();
 
