@@ -1,4 +1,5 @@
 getData()
+let allPosts = [];
 
 function getData() {
 
@@ -15,13 +16,13 @@ function getData() {
     });
 }
 
+// Parses data from Firebase's JSON data
 function parseData(data) {
     let post = data;
     let keys = Object.keys(post);
-    let fullPosts = [];
-    
-    for (var i = 0; i < keys.length; i++){
-        let k =  keys[i]
+
+    for (var i = 0; i < keys.length; i++) {
+        let k = keys[i]
         let dataObj = {
             k: k,
             title: post[k].title,
@@ -29,26 +30,29 @@ function parseData(data) {
             author: post[k].author,
             date: post[k].date
         }
-        fullPosts.push(dataObj)
+        allPosts.push(dataObj)
     }
-    sortPost(fullPosts)
+    sortPost(allPosts)
 }
 
-function sortPost(fullPosts) {
-    let posts = fullPosts;
-    console.table(posts)
-    
-    const filteredPosts = posts.sort((a, b) => a.date > b.date ? 1 : -1);
-    console.table(filteredPosts)
-    // console.log(filteredPosts)
+// Sorts posts to display most recent first
+function sortPost(allPosts) {
+    let posts = allPosts;
+    let filteredPosts = posts.sort((a, b) => new Date(a.date) < new Date(b.date) ? 1 : -1);
+    printPosts(filteredPosts)
 }
 
-function printPosts(){
-    let printedPosts = '';
+function printPosts(filteredPosts) {
+    let posts = filteredPosts;
+    let printedPosts = ""
+    console.log(filteredPosts)
 
-    posts += `<div class="printedPost">
-    <p class="post-title">${title}<span class="post-date">${date}</span></p>
-    <p class="post-content">${content}</p></div>`;
-    
-    document.querySelector('#printed-posts').innerHTML = posts + "syccess";
+    for (var i = 0; i < allPosts.length; i++) {
+        let indivPost = posts[i]
+        console.log(indivPost)
+        printedPosts += `<div class="printedPost">
+        <p class="post-title">${indivPost.title}<span class="post-date">${indivPost.date}</span></p>
+        <p class="post-content">${indivPost.content}</p></div>`;
+    }
+    document.querySelector('#printed-posts').innerHTML = printedPosts;
 }
