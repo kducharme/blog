@@ -228,10 +228,14 @@ textarea:focus, textarea:active input:focus, input:active {
 
 /* PRINTED POSTS */
 
+.posts-body {
+    margin-top: 2%;
+}
+
 .printedPost {
     background-color: white;
     width: 100%;
-    margin: 0px 0px 70px 0px;
+    margin: 0px 0px 60px 0px;
 }
 
 .post-title {
@@ -239,6 +243,7 @@ textarea:focus, textarea:active input:focus, input:active {
     font-size: 24px;
     font-weight: 800;
     font-family: 'lato';
+    margin: 0px 0px 8px 0px;
 }
 
 .post-date {
@@ -256,4 +261,6 @@ textarea:focus, textarea:active input:focus, input:active {
     font-weight: 200;
     font-family: 'merriweather';
     line-height: 23px;
+    padding: 5px 0px 0px 00px;
+    
 }
