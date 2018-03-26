@@ -9,7 +9,7 @@ document.getElementById("submit-post").addEventListener("click", createPost)
 
 document.getElementById("post-body").addEventListener("dblclick", getHighlighted)
 
-// Post object template
+// Post object constructor
 function Post(author, body, date, status, title) {
     this.author = author;
     this.body = body;
@@ -115,15 +115,22 @@ function getHighlighted() {
 
 // Wraps selected text in a span
 function newSpan(text) {
-    let beforeText = text;
-    
+    let selectedText = text;
+    let atText = [];
+    let postContent = document.querySelector('#post-body');
+    let allText = postContent.innerHTML.split(' ');
+    let position = allText.indexOf(selectedText);
 
-    let afterText = document.createElement('span')
-    afterText.innerHTML = beforeText
-    afterText.classList.add('header-one')
-    
+    let beforeText = allText.splice(0, position)
+    allText.shift(0, 1)
+    let afterText = allText.splice(0, allText.length)
 
-    // var paragraph = document.getElementById("post-body").innerHTML;
-    // var before = paragraph.split(text);
-    // let result = `${before[0]} <b> ${text} ${before[1]} </b>`;
+    let styledText = document.createElement('span')
+    styledText.textContent = selectedText;
+    styledText.classList.add('header-one')
+
+    atText.push(styledText.outerHTML)
+
+    let postText = beforeText.concat(atText, afterText);
+    postContent.innerHTML = postText.join(" ");
 }
