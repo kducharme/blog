@@ -9,11 +9,21 @@ function getData() {
         success: function (data) {
             console.log('success - data received');
             parseData(data);
+            fixStyling();
         },
         error: function (error) {
             console.table('error: ' + error)
         }
     });
+}
+
+// Removes styling from Knook page
+function fixStyling() {
+    let post = document.querySelectorAll('#post-body');
+    for (var i = 0; i < post.length; i++) {
+        post[i].classList.remove('post-body');
+        post[i].classList.add('post-content');
+    }
 }
 
 // Parses data from Firebase's JSON data

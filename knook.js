@@ -21,12 +21,13 @@ function Post(author, body, date, status, title) {
 // Pushes post to Firebase after published
 function createPost() {
     let author = getAuthor(name);
-    let body = document.getElementById("post-body");
+    let body = document.querySelector("#post-body");
     let date = getDate(datePosted);
     let status = "Draft";
-    let title = document.getElementById("title");
+    let title = document.querySelector("#title");
 
-    newPost = new Post(author, body.textContent, date, status, title.value);
+    newPost = new Post(author, String(body.outerHTML), date, status, title.value);
+
 
     $.ajax({
         url: 'https://kyle-personal-blog.firebaseio.com/posts.json',
