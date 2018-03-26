@@ -109,19 +109,21 @@ function getHighlighted() {
         text = document.selection.createRange().text;
     }
     selectedText.push(text)
-    // newSpan(text);
-    console.log(text);
+    newSpan(text);
     return text;
 }
 
 // Wraps selected text in a span
 function newSpan(text) {
-    let selection = window.getSelection();
+    let beforeText = text;
+    
 
-    var paragraph = document.getElementById("post-body").innerHTML;
-    let newNode = document.createElement("span");
-    var before = paragraph.split(text);
-    let result = `${before[0]} <b> ${text} ${before[1]} </b>`;
+    let afterText = document.createElement('span')
+    afterText.innerHTML = beforeText
+    afterText.classList.add('header-one')
+    
 
-    console.log(newNode.createTextNode(result))
+    // var paragraph = document.getElementById("post-body").innerHTML;
+    // var before = paragraph.split(text);
+    // let result = `${before[0]} <b> ${text} ${before[1]} </b>`;
 }

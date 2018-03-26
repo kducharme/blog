@@ -17,11 +17,12 @@ function getData() {
     });
 }
 
-// Removes styling from Knook page
+// Removes Knook page styling and editability
 function fixStyling() {
     let post = document.querySelectorAll('#post-body');
     for (var i = 0; i < post.length; i++) {
         post[i].classList.remove('post-body');
+        post[i].removeAttribute('contenteditable');
         post[i].classList.add('post-content');
     }
 }
