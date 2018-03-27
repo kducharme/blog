@@ -115,22 +115,15 @@ function getHighlighted() {
 
 // Wraps selected text in a span
 function newSpan(text) {
-    let selectedText = text;
-    let atText = [];
-    let postContent = document.querySelector('#post-body');
-    let allText = postContent.innerHTML.split(' ');
-    let position = allText.indexOf(selectedText);
+    let postContent = document.querySelector('#post-body'),
+    allText = postContent.innerHTML.split(' '),
+    position = allText.indexOf(text);
 
-    let beforeText = allText.splice(0, position)
-    allText.shift(0, 1)
-    let afterText = allText.splice(0, allText.length)
-
-    let styledText = document.createElement('span')
-    styledText.textContent = selectedText;
-    styledText.classList.add('header-one')
-
-    atText.push(styledText.outerHTML)
-
-    let postText = beforeText.concat(atText, afterText);
-    postContent.innerHTML = postText.join(" ");
-}
+    let styledText = document.createElement('span');
+    styledText.textContent = text;
+    styledText.classList.add('header-one');
+    console.log(styledText)
+    
+    allText.splice(position, 1, styledText.outerHTML)
+    postContent.innerHTML = allText.join(" ");
+ }
