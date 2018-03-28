@@ -115,7 +115,7 @@ function getText() {
 
 // Wraps selected text in a span
 function cleanText(text) {
-    let selectText = text.split(' '); // Creates array from text user selected
+    selectText = text.split(' '); // Creates array from text user selected
 
     if (text !== '') {
         for (let i = 0; i < selectText.length; i++) {
@@ -125,43 +125,51 @@ function cleanText(text) {
             }
         }
         addClass(selectText)
+        console.log(selectText)
     }
 }
 
 document.querySelector('#textOptions').addEventListener('click', addClass);
 
-function addClass(selectText, e) {
+function addClass(e) {
+
     let postContent = document.querySelector('#post-body'), // Gets text from post body
         allText = postContent.innerHTML.split(' '), // Creates array from post body text
         selectLength = selectText.length, // Counts number of selected text
         position = allText.indexOf(selectText[0]), // Finds location of first value
         newSpan = document.createElement('span'),
         cleanText = selectText.join(' ');
-    newSpan.textContent = cleanText;
-
-    let clickedButton = e.target.id,
-        selectedText = cleanText();
-    switch (clickedButton) {
-        case big:
-            newSpan.classList.add('header-one');
-        case med:
-            newSpan.classList.add('header-two');
-        case bold:
-            newSpan.classList.add('bold-text');
-        case italic:
-            newSpan.classList.add('italic-text');
-    }
-
-console.log(clickedButton)
     
+    console.log("clean text", cleanText)
+    newSpan.textContent = cleanText;
+    
+    let clickedButton = e.target.id
+    
+    switch(clickedButton) {
+        case "big":
+            newSpan.classList.add('header-one')
+            break;
+        case "med":
+            newSpan.classList.add('header-two')
+            break;
+        case "bold":
+            newSpan.classList.add('bold-text')
+            break;
+        case "italic":
+            newSpan.classList.add('italic-text')
+            break;
+    }
+    
+    allText.splice(position, 1, newSpan.outerHTML)
+    postContent.innerHTML = allText.join(' ');
 
-
+    console.log("newSpan", newSpan)
+    console.log(clickedButton)
+    
 }
 
 function newSpan(text) {
     styledText.classList.add('header-one');
     console.log(styledText)
 
-    allText.splice(position, 1, styledText.outerHTML)
-    postContent.innerHTML = allText.join(' ');
 }
