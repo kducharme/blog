@@ -5,6 +5,7 @@ getDate()
 getAuthor()
 getStatus()
 disablePostButton()
+let selectText = [];
 
 
 document.getElementById("submit-post").addEventListener("click", createPost)
@@ -107,51 +108,60 @@ function getText() {
     let text = "";
     if (window.getSelection) {
         text = window.getSelection().toString();
-        styleText(text)
+        cleanText(text)
         return text;
     }
 }
 
 // Wraps selected text in a span
-function styleText(text) {
-    let postContent = document.querySelector('#post-body'), // Gets text from post body
-        allText = postContent.innerHTML.split(' '), // Creates array from post body text
-        selectText = text.split(' '); // Creates array from text user selected
-        
-        if (text !== '') {
-            for (let i = 0; i < selectText.length; i++) {
-                if (selectText[i] == '') {
-                    let spacePosition = selectText.indexOf('');
-                    selectText.splice(spacePosition, 1);
+function cleanText(text) {
+    let selectText = text.split(' '); // Creates array from text user selected
+
+    if (text !== '') {
+        for (let i = 0; i < selectText.length; i++) {
+            if (selectText[i] == '') {
+                let spacePosition = selectText.indexOf('');
+                selectText.splice(spacePosition, 1);
             }
         }
+        addClass(selectText)
+    }
+}
+
+document.querySelector('#textOptions').addEventListener('click', addClass);
+
+function addClass(selectText, e) {
+    let postContent = document.querySelector('#post-body'), // Gets text from post body
+        allText = postContent.innerHTML.split(' '), // Creates array from post body text
         selectLength = selectText.length, // Counts number of selected text
-        position = allText.indexOf(selectText[0]);
-        console.log(position)
-    }
-}
+        position = allText.indexOf(selectText[0]), // Finds location of first value
+        newSpan = document.createElement('span'),
+        cleanText = selectText.join(' ');
+    newSpan.textContent = cleanText;
 
-function addClass() {
-    let clickedButton = event.target.id
+    let clickedButton = e.target.id,
+        selectedText = cleanText();
     switch (clickedButton) {
+        case big:
+            newSpan.classList.add('header-one');
+        case med:
+            newSpan.classList.add('header-two');
         case bold:
-            element.addClass("bold");
-        case header:
-            element.addClass("header");
+            newSpan.classList.add('bold-text');
+        case italic:
+            newSpan.classList.add('italic-text');
     }
-}
 
+console.log(clickedButton)
+    
+
+
+}
 
 function newSpan(text) {
-    let postContent = document.querySelector('#post-body'),
-        allText = postContent.innerHTML.split(' '),
-        position = allText.indexOf(text);
-
-    let styledText = document.createElement('span');
-    styledText.textContent = text;
     styledText.classList.add('header-one');
     console.log(styledText)
 
     allText.splice(position, 1, styledText.outerHTML)
-    postContent.innerHTML = allText.join(" ");
+    postContent.innerHTML = allText.join(' ');
 }
