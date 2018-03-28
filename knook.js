@@ -1,13 +1,15 @@
+// NEEDS WHEN REFACTORING
+// 1. Figure out if a user is selecting only part of a word. If so, select the full word.
+
 getDate()
 getAuthor()
 getStatus()
 disablePostButton()
-selectedText = [];
 
 
 document.getElementById("submit-post").addEventListener("click", createPost)
 
-document.getElementById("post-body").addEventListener("dblclick", getHighlighted)
+document.getElementById("post-body").addEventListener("mouseup", getText)
 
 // Post object constructor
 function Post(author, body, date, status, title) {
@@ -101,29 +103,55 @@ function postDate(datePosted) {
 }
 
 // Collects text that user selected
-function getHighlighted() {
+function getText() {
     let text = "";
     if (window.getSelection) {
         text = window.getSelection().toString();
-    } else if (document.selection && document.selection.type != "Control") {
-        text = document.selection.createRange().text;
+        styleText(text)
+        return text;
     }
-    selectedText.push(text)
-    newSpan(text);
-    return text;
 }
 
 // Wraps selected text in a span
+function styleText(text) {
+    let postContent = document.querySelector('#post-body'), // Gets text from post body
+        allText = postContent.innerHTML.split(' '), // Creates array from post body text
+        selectText = text.split(' '); // Creates array from text user selected
+        
+        if (text !== '') {
+            for (let i = 0; i < selectText.length; i++) {
+                if (selectText[i] == '') {
+                    let spacePosition = selectText.indexOf('');
+                    selectText.splice(spacePosition, 1);
+            }
+        }
+        selectLength = selectText.length, // Counts number of selected text
+        position = allText.indexOf(selectText[0]);
+        console.log(position)
+    }
+}
+
+function addClass() {
+    let clickedButton = event.target.id
+    switch (clickedButton) {
+        case bold:
+            element.addClass("bold");
+        case header:
+            element.addClass("header");
+    }
+}
+
+
 function newSpan(text) {
     let postContent = document.querySelector('#post-body'),
-    allText = postContent.innerHTML.split(' '),
-    position = allText.indexOf(text);
+        allText = postContent.innerHTML.split(' '),
+        position = allText.indexOf(text);
 
     let styledText = document.createElement('span');
     styledText.textContent = text;
     styledText.classList.add('header-one');
     console.log(styledText)
-    
+
     allText.splice(position, 1, styledText.outerHTML)
     postContent.innerHTML = allText.join(" ");
- }
+}
