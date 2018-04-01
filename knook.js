@@ -77,7 +77,8 @@ function getDate() {
     let year = date.getFullYear();
     let reviewDay = dayNames[dayOfWeek]
     let reviewMonth = monthNames[month]
-    datePosted = reviewMonth + " " + day + ", " + year
+    datePosted = reviewMonth + " " + day + ", " + year;
+
     return datePosted;
 }
 
@@ -138,13 +139,13 @@ function addClass(e) {
         position = allText.indexOf(selectText[0]), // Finds location of first value
         newSpan = document.createElement('span'),
         cleanText = selectText.join(' ');
-    
+
     console.log("clean text", cleanText)
     newSpan.textContent = cleanText;
-    
+
     let clickedButton = e.target.id
-    
-    switch(clickedButton) {
+
+    switch (clickedButton) {
         case "big":
             newSpan.classList.add('header-one')
             break;
@@ -158,13 +159,9 @@ function addClass(e) {
             newSpan.classList.add('italic-text')
             break;
     }
-    
+
     allText.splice(position, 1, newSpan.outerHTML)
     postContent.innerHTML = allText.join(' ');
-
-    console.log("newSpan", newSpan)
-    console.log(clickedButton)
-    
 }
 
 function newSpan(text) {
