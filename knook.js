@@ -1,16 +1,17 @@
 // NEEDS WHEN REFACTORING
 // 1. Figure out if a user is selecting only part of a word. If so, select the full word.
 
-getDate()
-getAuthor()
-getStatus()
-disablePostButton()
+getDate();
+getAuthor();
+getStatus();
+postDate();
+disablePostButton();
 let selectText = [];
 
 
-document.getElementById("submit-post").addEventListener("click", createPost)
+document.getElementById("submit-post").addEventListener("click", createPost);
 
-document.getElementById("post-body").addEventListener("mouseup", getText)
+document.getElementById("post-body").addEventListener("mouseup", getText);
 
 // Post object constructor
 function Post(author, body, date, status, title) {
@@ -77,8 +78,6 @@ function getDate() {
     let reviewDay = dayNames[dayOfWeek]
     let reviewMonth = monthNames[month]
     datePosted = reviewMonth + " " + day + ", " + year
-
-    postDate(datePosted)
     return datePosted;
 }
 
@@ -98,8 +97,8 @@ function getStatus() {
 }
 
 // Shows date created on the knook area
-function postDate(datePosted) {
-    let date = datePosted
+function postDate() {
+    let date = getDate();
     document.getElementById("date").innerHTML = date
 }
 
