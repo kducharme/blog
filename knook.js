@@ -93,7 +93,6 @@ function getAuthor() {
 function getStatus() {
     let status = "Draft";
     document.getElementById("status").innerHTML = status
-
     return status;
 }
 
@@ -134,18 +133,21 @@ document.querySelector('#textOptions').addEventListener('click', addClass);
 function addClass(e) {
 
     let postContent = document.querySelector('#post-body'), // Gets text from post body
+        pattern = /[^<]/ig,
+        // result = postContent.replace(pattern, '');
         allText = postContent.innerHTML.split(' '), // Creates array from post body text
         selectLength = selectText.length, // Counts number of selected text
         position = allText.indexOf(selectText[0]), // Finds location of first value
         newSpan = document.createElement('span'),
         cleanText = selectText.join(' ');
 
-    console.log("clean text", cleanText)
+        console.log(postContent.innerHTML.match(pattern));  
+
     newSpan.textContent = cleanText;
 
-    let clickedButton = e.target.id
+    let clickedButton = e.target;
 
-    switch (clickedButton) {
+    switch (clickedButton.id) {
         case "big":
             newSpan.classList.add('header-one')
             break;
@@ -158,8 +160,10 @@ function addClass(e) {
         case "italic":
             newSpan.classList.add('italic-text')
             break;
+        case "clear":
+            newSpan.classList.remove('header-one');
+            break;
     }
-
     allText.splice(position, 1, newSpan.outerHTML)
     postContent.innerHTML = allText.join(' ');
 }

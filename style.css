@@ -202,10 +202,18 @@ textarea:focus, textarea:active input:focus, input:active {
     font-weight: 400;
     font-style: italic;
     padding-top: 4px;
+    padding: 4px 15px 0px 0px;
 }
 
-.big:hover, .med:hover, .bold:hover, .italic:hover {
+.clear {
+    font-family: var(--fontSecondary);
+    font-weight: 400;
+    padding-top: 4px;
+}
+
+.big:hover, .med:hover, .bold:hover, .italic:hover, .clear:hover {
     cursor: pointer;
+    opacity: .5;
 }
 
 .disable {
