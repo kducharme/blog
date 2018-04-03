@@ -133,7 +133,7 @@ document.querySelector('#textOptions').addEventListener('click', addClass);
 function addClass(e) {
 
     let postContent = document.querySelector('#post-body'), // Gets text from post body
-        pattern = /[^<]/ig,
+        pattern = /(<span([^>]+)>)/ig,
         // result = postContent.replace(pattern, '');
         allText = postContent.innerHTML.split(' '), // Creates array from post body text
         selectLength = selectText.length, // Counts number of selected text
